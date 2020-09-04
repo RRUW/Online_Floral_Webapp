@@ -19,7 +19,6 @@ namespace Online_Floral_Web_App.Controllers
             return View();
         }
 
-
         public ActionResult About()
         {
             return View();

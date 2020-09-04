@@ -13,5 +13,21 @@ namespace Online_Floral_Web_App.Controllers
         {
             return View();
         }
+
+        public ActionResult Category()
+        {
+            return View();
+        }
+
+
+        public ActionResult About()
+        {
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            return View();
+        }
     }
 }

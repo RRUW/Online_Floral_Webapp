@@ -136,6 +136,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\banner_1.jpg" />
+    <Content Include="Images\banner_2.jpg" />
+    <Content Include="Images\banner_3.jpg" />
+    <Content Include="Images\banner_4.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="contctfrm_css\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />

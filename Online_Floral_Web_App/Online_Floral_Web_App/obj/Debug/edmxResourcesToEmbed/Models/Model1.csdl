@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="online_floralModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="bouquet">
+    <Key>
+      <PropertyRef Name="bouquetid" />
+    </Key>
+    <Property Name="bouquetid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="image" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="cate_id" Type="Int32" />
+    <Property Name="occasion_id" Type="Int32" />
+    <NavigationProperty Name="category" Relationship="Self.FK_bouquet_ToTable" FromRole="bouquet" ToRole="category" />
+    <NavigationProperty Name="Occasion" Relationship="Self.FK_bouquet_ToTable_1" FromRole="bouquet" ToRole="Occasion" />
+    <NavigationProperty Name="sales" Relationship="Self.FK_sales_ToTable_1" FromRole="bouquet" ToRole="sales" />
+  </EntityType>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bouquet" Relationship="Self.FK_bouquet_ToTable" FromRole="category" ToRole="bouquet" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="custid" />
+    </Key>
+    <Property Name="custid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dob" Type="DateTime" Precision="0" />
+    <Property Name="gender" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="phone_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="person" Relationship="Self.FK_person_ToTable" FromRole="customer" ToRole="person" />
+    <NavigationProperty Name="sales" Relationship="Self.FK_sales_ToTable" FromRole="customer" ToRole="sales" />
+  </EntityType>
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="full_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="paswrd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="account_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="messages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Occasionid" Type="Int32" />
+    <Property Name="message" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Occasion" Relationship="Self.FK_messages_ToTable" FromRole="messages" ToRole="Occasion" />
+  </EntityType>
+  <EntityType Name="Occasion">
+    <Key>
+      <PropertyRef Name="Occasionid" />
+    </Key>
+    <Property Name="Occasionid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bouquet" Relationship="Self.FK_bouquet_ToTable_1" FromRole="Occasion" ToRole="bouquet" />
+    <NavigationProperty Name="messages" Relationship="Self.FK_messages_ToTable" FromRole="Occasion" ToRole="messages" />
+  </EntityType>
+  <EntityType Name="person">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="To_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="To_Address" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="To_Phone_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Delivery_Date" Type="DateTime" Precision="0" />
+    <Property Name="Cust_Id" Type="Int32" />
+    <NavigationProperty Name="customer" Relationship="Self.FK_person_ToTable" FromRole="person" ToRole="customer" />
+  </EntityType>
+  <EntityType Name="sales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="custid" Type="Int32" />
+    <Property Name="bouquetid" Type="Int32" />
+    <Property Name="purchase_date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="bouquet" Relationship="Self.FK_sales_ToTable_1" FromRole="sales" ToRole="bouquet" />
+    <NavigationProperty Name="customer" Relationship="Self.FK_sales_ToTable" FromRole="sales" ToRole="customer" />
+  </EntityType>
+  <Association Name="FK_bouquet_ToTable">
+    <End Role="category" Type="Self.category" Multiplicity="0..1" />
+    <End Role="bouquet" Type="Self.bouquet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="bouquet">
+        <PropertyRef Name="cate_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bouquet_ToTable_1">
+    <End Role="Occasion" Type="Self.Occasion" Multiplicity="0..1" />
+    <End Role="bouquet" Type="Self.bouquet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Occasion">
+        <PropertyRef Name="Occasionid" />
+      </Principal>
+      <Dependent Role="bouquet">
+        <PropertyRef Name="occasion_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sales_ToTable_1">
+    <End Role="bouquet" Type="Self.bouquet" Multiplicity="0..1" />
+    <End Role="sales" Type="Self.sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bouquet">
+        <PropertyRef Name="bouquetid" />
+      </Principal>
+      <Dependent Role="sales">
+        <PropertyRef Name="bouquetid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_person_ToTable">
+    <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="person" Type="Self.person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="custid" />
+      </Principal>
+      <Dependent Role="person">
+        <PropertyRef Name="Cust_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sales_ToTable">
+    <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="sales" Type="Self.sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="custid" />
+      </Principal>
+      <Dependent Role="sales">
+        <PropertyRef Name="custid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_messages_ToTable">
+    <End Role="Occasion" Type="Self.Occasion" Multiplicity="0..1" />
+    <End Role="messages" Type="Self.messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Occasion">
+        <PropertyRef Name="Occasionid" />
+      </Principal>
+      <Dependent Role="messages">
+        <PropertyRef Name="Occasionid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="online_floralEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="bouquet" EntityType="Self.bouquet" />
+    <EntitySet Name="category" EntityType="Self.category" />
+    <EntitySet Name="customer" EntityType="Self.customer" />
+    <EntitySet Name="login" EntityType="Self.login" />
+    <EntitySet Name="messages" EntityType="Self.messages" />
+    <EntitySet Name="Occasion" EntityType="Self.Occasion" />
+    <EntitySet Name="person" EntityType="Self.person" />
+    <EntitySet Name="sales" EntityType="Self.sales" />
+    <AssociationSet Name="FK_bouquet_ToTable" Association="Self.FK_bouquet_ToTable">
+      <End Role="category" EntitySet="category" />
+      <End Role="bouquet" EntitySet="bouquet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bouquet_ToTable_1" Association="Self.FK_bouquet_ToTable_1">
+      <End Role="Occasion" EntitySet="Occasion" />
+      <End Role="bouquet" EntitySet="bouquet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sales_ToTable_1" Association="Self.FK_sales_ToTable_1">
+      <End Role="bouquet" EntitySet="bouquet" />
+      <End Role="sales" EntitySet="sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_person_ToTable" Association="Self.FK_person_ToTable">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="person" EntitySet="person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sales_ToTable" Association="Self.FK_sales_ToTable">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="sales" EntitySet="sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_messages_ToTable" Association="Self.FK_messages_ToTable">
+      <End Role="Occasion" EntitySet="Occasion" />
+      <End Role="messages" EntitySet="messages" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

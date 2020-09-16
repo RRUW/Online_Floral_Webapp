@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="online_floralModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="bouquet">
+    <Key>
+      <PropertyRef Name="bouquetid" />
+    </Key>
+    <Property Name="bouquetid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="price" Type="money" />
+    <Property Name="image" Type="varchar" MaxLength="150" />
+    <Property Name="cate_id" Type="int" />
+    <Property Name="occasion_id" Type="int" />
+  </EntityType>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category_name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="custid" />
+    </Key>
+    <Property Name="custid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="first_name" Type="varchar" MaxLength="50" />
+    <Property Name="last_name" Type="varchar" MaxLength="50" />
+    <Property Name="dob" Type="date" />
+    <Property Name="gender" Type="varchar" MaxLength="5" />
+    <Property Name="phone_no" Type="varchar" MaxLength="50" />
+    <Property Name="address" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="full_name" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="paswrd" Type="varchar" MaxLength="50" />
+    <Property Name="account_type" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="messages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Occasionid" Type="int" />
+    <Property Name="message" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Occasion">
+    <Key>
+      <PropertyRef Name="Occasionid" />
+    </Key>
+    <Property Name="Occasionid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="person">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="To_Name" Type="varchar" MaxLength="50" />
+    <Property Name="To_Address" Type="varchar" MaxLength="150" />
+    <Property Name="To_Phone_no" Type="varchar" MaxLength="50" />
+    <Property Name="Delivery_Date" Type="date" />
+    <Property Name="Cust_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="sales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="custid" Type="int" />
+    <Property Name="bouquetid" Type="int" />
+    <Property Name="purchase_date" Type="date" />
+  </EntityType>
+  <Association Name="FK_bouquet_ToTable">
+    <End Role="category" Type="Self.category" Multiplicity="0..1" />
+    <End Role="bouquet" Type="Self.bouquet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="bouquet">
+        <PropertyRef Name="cate_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bouquet_ToTable_1">
+    <End Role="Occasion" Type="Self.Occasion" Multiplicity="0..1" />
+    <End Role="bouquet" Type="Self.bouquet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Occasion">
+        <PropertyRef Name="Occasionid" />
+      </Principal>
+      <Dependent Role="bouquet">
+        <PropertyRef Name="occasion_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_messages_ToTable">
+    <End Role="Occasion" Type="Self.Occasion" Multiplicity="0..1" />
+    <End Role="messages" Type="Self.messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Occasion">
+        <PropertyRef Name="Occasionid" />
+      </Principal>
+      <Dependent Role="messages">
+        <PropertyRef Name="Occasionid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_person_ToTable">
+    <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="person" Type="Self.person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="custid" />
+      </Principal>
+      <Dependent Role="person">
+        <PropertyRef Name="Cust_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sales_ToTable">
+    <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="sales" Type="Self.sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="custid" />
+      </Principal>
+      <Dependent Role="sales">
+        <PropertyRef Name="custid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sales_ToTable_1">
+    <End Role="bouquet" Type="Self.bouquet" Multiplicity="0..1" />
+    <End Role="sales" Type="Self.sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bouquet">
+        <PropertyRef Name="bouquetid" />
+      </Principal>
+      <Dependent Role="sales">
+        <PropertyRef Name="bouquetid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="online_floralModelStoreContainer">
+    <EntitySet Name="bouquet" EntityType="Self.bouquet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="login" EntityType="Self.login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="messages" EntityType="Self.messages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Occasion" EntityType="Self.Occasion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="person" EntityType="Self.person" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sales" EntityType="Self.sales" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_bouquet_ToTable" Association="Self.FK_bouquet_ToTable">
+      <End Role="category" EntitySet="category" />
+      <End Role="bouquet" EntitySet="bouquet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bouquet_ToTable_1" Association="Self.FK_bouquet_ToTable_1">
+      <End Role="Occasion" EntitySet="Occasion" />
+      <End Role="bouquet" EntitySet="bouquet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_messages_ToTable" Association="Self.FK_messages_ToTable">
+      <End Role="Occasion" EntitySet="Occasion" />
+      <End Role="messages" EntitySet="messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_person_ToTable" Association="Self.FK_person_ToTable">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="person" EntitySet="person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sales_ToTable" Association="Self.FK_sales_ToTable">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="sales" EntitySet="sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sales_ToTable_1" Association="Self.FK_sales_ToTable_1">
+      <End Role="bouquet" EntitySet="bouquet" />
+      <End Role="sales" EntitySet="sales" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

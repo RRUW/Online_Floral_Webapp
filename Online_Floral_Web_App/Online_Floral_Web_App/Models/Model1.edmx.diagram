@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3106d941209c42678d476ed7cdf6a6b6" Name="Diagram1">
+        <EntityTypeShape EntityType="online_floralModel.bouquet" Width="1.5" PointX="2.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="online_floralModel.category" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="online_floralModel.customer" Width="1.5" PointX="5.375" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="online_floralModel.login" Width="1.5" PointX="0.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="online_floralModel.messages" Width="1.5" PointX="2.625" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="online_floralModel.Occasion" Width="1.5" PointX="0.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="online_floralModel.person" Width="1.5" PointX="2.625" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="online_floralModel.sales" Width="1.5" PointX="5.375" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="online_floralModel.FK_bouquet_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="online_floralModel.FK_bouquet_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="online_floralModel.FK_sales_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="online_floralModel.FK_person_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="online_floralModel.FK_sales_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="online_floralModel.FK_messages_ToTable" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

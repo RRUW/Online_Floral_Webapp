@@ -16,3 +16,7 @@ C:\Users\Mehwishashraf\Documents\Online_Floral_Webapp\Online_Floral_Web_App\Onli
 C:\Users\Mehwishashraf\Documents\Online_Floral_Webapp\Online_Floral_Web_App\Online_Floral_Web_App\obj\Debug\Online_Floral_Web_App.csprojResolveAssemblyReference.cache
 C:\Users\Mehwishashraf\Documents\Online_Floral_Webapp\Online_Floral_Web_App\Online_Floral_Web_App\obj\Debug\Online_Floral_Web_App.dll
 C:\Users\Mehwishashraf\Documents\Online_Floral_Webapp\Online_Floral_Web_App\Online_Floral_Web_App\obj\Debug\Online_Floral_Web_App.pdb
+C:\Users\Mehwishashraf\Documents\Online_Floral_Webapp\Online_Floral_Web_App\Online_Floral_Web_App\bin\EntityFramework.dll
+C:\Users\Mehwishashraf\Documents\Online_Floral_Webapp\Online_Floral_Web_App\Online_Floral_Web_App\bin\EntityFramework.SqlServer.dll
+C:\Users\Mehwishashraf\Documents\Online_Floral_Webapp\Online_Floral_Web_App\Online_Floral_Web_App\bin\EntityFramework.xml
+C:\Users\Mehwishashraf\Documents\Online_Floral_Webapp\Online_Floral_Web_App\Online_Floral_Web_App\bin\EntityFramework.SqlServer.xml

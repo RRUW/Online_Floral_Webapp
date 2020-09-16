@@ -1,0 +1,59 @@
+﻿@model Online_Floral_Web_App.Models.person
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>person</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.To_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.To_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.To_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.To_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.To_Phone_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.To_Phone_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Delivery_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Delivery_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customer.first_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer.first_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

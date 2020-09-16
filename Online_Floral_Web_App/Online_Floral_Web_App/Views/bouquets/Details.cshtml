@@ -1,0 +1,59 @@
+﻿@model Online_Floral_Web_App.Models.bouquet
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>bouquet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.category.Category_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category.Category_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Occasion.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Occasion.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.bouquetid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

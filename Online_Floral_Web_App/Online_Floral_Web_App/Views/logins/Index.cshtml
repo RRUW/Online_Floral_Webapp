@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Online_Floral_Web_App.Models.login>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.full_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paswrd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.account_type)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.full_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paswrd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.account_type)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.username }) |
+            @Html.ActionLink("Details", "Details", new { id=item.username }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.username })
+        </td>
+    </tr>
+}
+
+</table>

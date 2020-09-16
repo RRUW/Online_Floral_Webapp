@@ -1,0 +1,51 @@
+﻿@model Online_Floral_Web_App.Models.login
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>login</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.full_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.full_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paswrd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paswrd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.account_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.account_type)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.username }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

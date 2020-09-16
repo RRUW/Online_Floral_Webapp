@@ -47,8 +47,7 @@
 }
 
 
-
-    </style>
+ </style>
 </head>
 <body>
     <header class="text-center">
@@ -65,9 +64,20 @@
                 @*@Html.ActionLink("Online Floral Shop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" style="z-index:1000;">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "item" })</li>
-                    <li>@Html.ActionLink("Category", "Category", "me", new { area = "" }, new { @class = "item" })</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Occasion
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" style="background-color:teal;">
+                            <li><a href="#" style="color:white">Page 1-1</a></li>
+                            <li><a href="#" style="color:white">Page 1-2</a></li>
+                            <li><a href="#" style="color:white">Page 1-3</a></li>
+                        </ul>
+                    </li>
+
                     <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "item" })</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "item" })</li>
                 </ul>
@@ -136,5 +146,7 @@
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </body>
 </html>

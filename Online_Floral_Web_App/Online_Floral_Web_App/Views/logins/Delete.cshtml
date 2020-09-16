@@ -1,0 +1,57 @@
+﻿@model Online_Floral_Web_App.Models.login
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>login</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.full_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.full_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paswrd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paswrd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.account_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.account_type)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

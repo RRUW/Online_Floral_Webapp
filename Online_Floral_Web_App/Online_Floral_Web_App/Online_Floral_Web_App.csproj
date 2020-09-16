@@ -244,7 +244,14 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\bouquetsController.cs" />
+    <Compile Include="Controllers\categoriesController.cs" />
+    <Compile Include="Controllers\customersController.cs" />
+    <Compile Include="Controllers\loginsController.cs" />
+    <Compile Include="Controllers\messagesController.cs" />
+    <Compile Include="Controllers\OccasionsController.cs" />
+    <Compile Include="Controllers\peopleController.cs" />
+    <Compile Include="Controllers\salesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -300,6 +307,47 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Shared\_AdminLayoutPage.cshtml" />
+    <Content Include="Views\bouquets\Create.cshtml" />
+    <Content Include="Views\bouquets\Delete.cshtml" />
+    <Content Include="Views\bouquets\Details.cshtml" />
+    <Content Include="Views\bouquets\Edit.cshtml" />
+    <Content Include="Views\bouquets\Index.cshtml" />
+    <Content Include="Views\categories\Create.cshtml" />
+    <Content Include="Views\categories\Delete.cshtml" />
+    <Content Include="Views\categories\Details.cshtml" />
+    <Content Include="Views\categories\Edit.cshtml" />
+    <Content Include="Views\categories\Index.cshtml" />
+    <Content Include="Views\customers\Create.cshtml" />
+    <Content Include="Views\customers\Delete.cshtml" />
+    <Content Include="Views\customers\Details.cshtml" />
+    <Content Include="Views\customers\Edit.cshtml" />
+    <Content Include="Views\customers\Index.cshtml" />
+    <Content Include="Views\logins\Create.cshtml" />
+    <Content Include="Views\logins\Delete.cshtml" />
+    <Content Include="Views\logins\Details.cshtml" />
+    <Content Include="Views\logins\Edit.cshtml" />
+    <Content Include="Views\logins\Index.cshtml" />
+    <Content Include="Views\messages\Create.cshtml" />
+    <Content Include="Views\messages\Delete.cshtml" />
+    <Content Include="Views\messages\Details.cshtml" />
+    <Content Include="Views\messages\Edit.cshtml" />
+    <Content Include="Views\messages\Index.cshtml" />
+    <Content Include="Views\Occasions\Create.cshtml" />
+    <Content Include="Views\Occasions\Delete.cshtml" />
+    <Content Include="Views\Occasions\Details.cshtml" />
+    <Content Include="Views\Occasions\Edit.cshtml" />
+    <Content Include="Views\Occasions\Index.cshtml" />
+    <Content Include="Views\people\Create.cshtml" />
+    <Content Include="Views\people\Delete.cshtml" />
+    <Content Include="Views\people\Details.cshtml" />
+    <Content Include="Views\people\Edit.cshtml" />
+    <Content Include="Views\people\Index.cshtml" />
+    <Content Include="Views\sales\Create.cshtml" />
+    <Content Include="Views\sales\Delete.cshtml" />
+    <Content Include="Views\sales\Details.cshtml" />
+    <Content Include="Views\sales\Edit.cshtml" />
+    <Content Include="Views\sales\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
